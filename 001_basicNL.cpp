@@ -19,7 +19,11 @@ int main() {
 
   double mse = 1.0;
 
-  while (mse > 0.001) {
+  double target_mse = 0.001;
+
+  int max_epoch = 10000;
+
+  while (mse > target_mse && epoch < max_epoch) {
     std::cout << "\n==============================\n";
     std::cout << " STARTING EPOCH " << epoch << "\n";
     std::cout << "Weight: " << weight << " | Bias: " << bias << "\n";
