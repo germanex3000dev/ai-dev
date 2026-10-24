@@ -17,7 +17,9 @@ int main() {
 
   int epoch = 1;
 
-  while (true) {
+  double mse = 1.0;
+
+  while (mse > 0.001) {
     std::cout << "\n==============================\n";
     std::cout << " STARTING EPOCH " << epoch << "\n";
     std::cout << "Weight: " << weight << " | Bias: " << bias << "\n";
@@ -52,18 +54,11 @@ int main() {
       total_loss += error * error;
     }
 
-    double mse = total_loss / inputs.size();
+    mse = total_loss / inputs.size();
 
     std::cout << "\nEpoch " << epoch << " done!\n";
     std::cout << "Weight: " << weight << " | Bias: " << bias << "\n";
     std::cout << "MSE: " << mse << "\n";
-
-    std::cout << "Press ENTER to run the next epoch "
-                 "(or press Ctrl+C to bail): ";
-
-    std::cin.ignore(
-        std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin.get();
 
     epoch++;
   }
