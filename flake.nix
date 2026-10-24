@@ -24,7 +24,6 @@
         ];
 
         shellHook = ''
-          echo "🔥 C++ Dev Shell Activated! Let's cook, gang. 🔥"
           echo "Compiler: $(gcc --version | head -n 1)"
         '';
       };
